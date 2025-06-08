@@ -1,1 +1,26 @@
+name: Build landing assets
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: npm ci
+      - run: npm run build
+
+      - run: |
+          git config --global user.name "GH Action"
+          git config --global user.email "action@github.com"
+          git add dist
+          git commit -m "Build dist [skip ci]" || echo "No changes"
+          git push
 
