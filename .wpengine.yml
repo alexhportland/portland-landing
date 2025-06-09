@@ -1,1 +1,2 @@
-remote_path: /wp-content/themes/portland/
+src_path: themes/portland/
+remote_path: wp-content/themes/portland/
