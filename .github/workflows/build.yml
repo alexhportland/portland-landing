@@ -14,13 +14,5 @@ jobs:
         with:
           node-version: 18
 
-      - run: npm install
+      - run: npm ci
       - run: npm run build
-
-      - run: |
-          git config --global user.name "GH Action"
-          git config --global user.email "action@github.com"
-          git add dist
-          git commit -m "Build dist [skip ci]" || echo "No changes"
-          git push
-
