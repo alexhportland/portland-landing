@@ -1,11 +1,12 @@
 /* landing.css - utility styles */
 
-/* Testing 123! */
 
 /* ===================================================
    LANDING PAGE BASE SCOPE
    =================================================== */
+
 .landing-page {
+  color: #fff;
 
   /* -----------------------------------------------
      Hero
@@ -48,11 +49,7 @@ letter-spacing: -2.2px;
      Quote Section
   -------------------------------------------------- */
   .quote {
-    font-size: 1.5rem;
-    font-style: italic;
-    margin: 4rem auto;
-    text-align: center;
-    max-width: 700px;
+
   }
 
   .quote-author {
