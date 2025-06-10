@@ -1,0 +1,26 @@
+name: Deploy to WPEngine via SFTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy Theme to WPEngine
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Deploy to WPEngine via SFTP
+        uses: pressidium/lftp-mirror-action@v1.0.1
+        with:
+          host: ${{ secrets.WPE_SFTP_HOST }}
+          port: 2222
+          user: ${{ secrets.WPE_SFTP_USER }}
+          pass: ${{ secrets.WPE_SFTP_PASS }}
+          localDir: themes/portland
+          remoteDir: wp-content/themes/portland
+          options: "--delete --verbose"
